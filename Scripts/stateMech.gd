@@ -2,10 +2,23 @@ extends Node
 
 var game_state_history: Array = []
 var player_ref = null  # We'll store a reference to the Player node here (optional)
-var is_in_past = false
+var on_time_travel_battery = false
+
+signal is_in_past_changed(new_value)
+
+# Instead of a simple var, use a setter
+var _is_in_past: bool = false
+
+# This property is what other scripts will read/write:
+var is_in_past:
+	get:
+		return _is_in_past
+	set(value):
+		if _is_in_past != value:
+			_is_in_past = value
+			emit_signal("is_in_past_changed", _is_in_past)
 
 func _ready() -> void:
-
 	# Runs once when the game starts or when this script is loaded as an Autoload.
 	pass
 

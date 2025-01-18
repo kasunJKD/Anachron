@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/time_travel_trigger.gd" id="1_4lygg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q88n"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 128
@@ -14,3 +14,4 @@ script = ExtResource("1_4lygg")
 shape = SubResource("RectangleShape2D_0q88n")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
