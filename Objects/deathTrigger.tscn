@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs7lff3pyyy7e"]
+
+[ext_resource type="Script" path="res://Scripts/death_trigger.gd" id="1_1ju61"]
+[ext_resource type="AudioStream" uid="uid://cclx82kkegvbv" path="res://Assets/sfx_submerge-14424.mp3" id="2_d1qbu"]
+[ext_resource type="AudioStream" uid="uid://g2jm12rjkky2" path="res://Assets/electrocute-6247.mp3" id="3_7wo5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5mvt"]
+size = Vector2(16, 16)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_1ju61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t5mvt")
+
+[node name="water_death_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_d1qbu")
+
+[node name="electric_death_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7wo5f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

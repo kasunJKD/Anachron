@@ -5,6 +5,7 @@ var move_speed = 80.0
 var is_moving = false
 
 func _ready():
+	add_to_group("boxes")
 	target_position = global_position
 
 func _physics_process(delta):

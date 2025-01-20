@@ -175,6 +175,8 @@ states/walk_right/position = Vector2(577, 170)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_qlvkg"), "idle", "walk_left", SubResource("AnimationNodeStateMachineTransition_4r7uc"), "walk_left", "idle", SubResource("AnimationNodeStateMachineTransition_f73de"), "idle", "walk_right", SubResource("AnimationNodeStateMachineTransition_hx88x"), "walk_right", "idle", SubResource("AnimationNodeStateMachineTransition_ftxup")]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 133
+collision_mask = 135
 script = ExtResource("1_ynn1e")
 vfx_footsteps = ExtResource("2_labdm")
 
