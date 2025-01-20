@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://uksi1mt88f2d"]
+[gd_scene load_steps=5 format=3 uid="uid://uksi1mt88f2d"]
 
 [ext_resource type="Script" path="res://Scripts/time_travel_trigger.gd" id="1_4lygg"]
+[ext_resource type="AudioStream" uid="uid://kpetgkr3slml" path="res://Assets/chargeup.mp3" id="2_8wf07"]
+[ext_resource type="AudioStream" uid="uid://bvggojy2eutbu" path="res://Assets/powerdown.mp3" id="3_2v1n3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q88n"]
 size = Vector2(16, 16)
@@ -12,6 +14,15 @@ script = ExtResource("1_4lygg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0q88n")
+
+[node name="chargeup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8wf07")
+bus = &"chargeup"
+
+[node name="chargedown" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2v1n3")
+attenuation = 1.93187
+bus = &"chargedown"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

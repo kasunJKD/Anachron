@@ -3,7 +3,7 @@ extends Node
 @onready var player = $Player
 @onready var tilemap_past = $Past_Map
 @onready var tilemap_present = $Map
-
+@onready var timeswitch_sfx: AudioStreamPlayer2D = $timeswitch_sfx
 func _ready() -> void:
 	# 1) Make sure tilemaps match the initial 'is_in_past' value
 	update_time_travel_visibility(StateMech.is_in_past)
@@ -36,6 +36,7 @@ func _input(event: InputEvent) -> void:
 		# Only allow time travel if on_time_travel_battery is true
 		if StateMech.on_time_travel_battery:
 			if event.keycode == KEY_T:
+				timeswitch_sfx.play()
 				# Toggle is_in_past (this will emit the signal automatically)
 				StateMech.is_in_past = not StateMech.is_in_past
 				# The _on_is_in_past_changed callback will do tilemap updates
@@ -45,6 +46,42 @@ func _on_is_in_past_changed(new_value: bool) -> void:
 	update_time_travel_visibility(new_value)
 	StateMech.store_game_state()
 
+func set_characters_active(active: bool, map: Node2D) -> void:
+	for child in map.get_children():
+		if child is CharacterBody2D:
+			if active:
+
+				# Or whichever bits you used originally
+
+				# Resume script processing
+				child.set_process(true)
+				child.set_physics_process(true)
+			else:
+
+
+				# Stop script processing
+				child.set_process(false)
+				child.set_physics_process(false)
+
 func update_time_travel_visibility(is_past: bool) -> void:
-	tilemap_past.visible = is_past
-	tilemap_present.visible = not is_past
+	# If we're in the past:
+	if is_past:
+		# Show + enable collisions for past map
+		tilemap_past.visible = true
+		set_characters_active(true, tilemap_past)
+		tilemap_past.get_node("TileMapLayer").enabled = true
+
+		# Hide + disable collisions for present map
+		tilemap_present.visible = false
+		set_characters_active(false, tilemap_present)
+		tilemap_present.get_node("BaseLayer").enabled = false
+
+	else:
+		# Show + enable collisions for present map
+		tilemap_past.visible = false
+		set_characters_active(false, tilemap_past)
+		tilemap_past.get_node("TileMapLayer").enabled = false
+
+		tilemap_present.visible = true
+		set_characters_active(true, tilemap_present)
+		tilemap_present.get_node("BaseLayer").enabled = true
