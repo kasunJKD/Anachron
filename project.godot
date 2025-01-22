@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Anachron"
-run/main_scene="res://Levels/start_level.tscn"
+run/main_scene="res://Levels/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
@@ -24,6 +24,10 @@ StateMech="*res://Scripts/stateMech.gd"
 window/size/viewport_width=512
 window/size/viewport_height=288
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom_font="res://Assets/vhs-gothic.ttf"
 
 [layer_names]
 

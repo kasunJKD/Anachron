@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhnhlcm3mk6ud"]
+
+[ext_resource type="Texture2D" uid="uid://b87bdb3uwfywg" path="res://mainmenu.png" id="1_kew5d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8saa"]
+atlas = ExtResource("1_kew5d")
+region = Rect2(0, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku1qa"]
+atlas = ExtResource("1_kew5d")
+region = Rect2(512, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x10v1"]
+atlas = ExtResource("1_kew5d")
+region = Rect2(1024, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a705v"]
+atlas = ExtResource("1_kew5d")
+region = Rect2(1536, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvuvq"]
+atlas = ExtResource("1_kew5d")
+region = Rect2(2048, 0, 512, 288)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_d72ht"]
+resource_local_to_scene = true
+frames = 5
+frame_0/texture = SubResource("AtlasTexture_v8saa")
+frame_1/texture = SubResource("AtlasTexture_ku1qa")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("AtlasTexture_x10v1")
+frame_2/duration = 1.0
+frame_3/texture = SubResource("AtlasTexture_a705v")
+frame_3/duration = 1.0
+frame_4/texture = SubResource("AtlasTexture_dvuvq")
+frame_4/duration = 1.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AnimatedTexture_d72ht")
