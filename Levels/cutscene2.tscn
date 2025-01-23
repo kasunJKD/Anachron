@@ -1,3 +1,209 @@
-[gd_scene format=3 uid="uid://cymnvbmk7y4a2"]
+[gd_scene load_steps=11 format=3 uid="uid://bovkvkmo17t6c"]
 
-[node name="Cutscene2" type="Node2D"]
+[ext_resource type="Script" path="res://Levels/cutscene_2.gd" id="1_k4haf"]
+[ext_resource type="Texture2D" uid="uid://qriaed7in7fc" path="res://dd.png" id="2_b2u0e"]
+[ext_resource type="AudioStream" uid="uid://btsnyccaob2jl" path="res://Assets/drop.mp3" id="3_7nixe"]
+[ext_resource type="AudioStream" uid="uid://cho4uw5dbe7we" path="res://Assets/deamon rise.mp3" id="4_ubvvj"]
+[ext_resource type="AudioStream" uid="uid://bom6pgjltgund" path="res://Assets/denter.mp3" id="5_7i1l0"]
+[ext_resource type="PackedScene" uid="uid://b3p2rpxi8kore" path="res://Objects/text_box.tscn" id="6_w52we"]
+
+[sub_resource type="Animation" id="Animation_dhli2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, -96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_r6bhw"]
+resource_name = "d1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(432, -16), Vector2(256, 144)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_7nixe")
+}],
+"times": PackedFloat32Array(0.3)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_xmfum"]
+resource_name = "d2"
+length = 50.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.766667, 1.8, 2.86667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(256, -96), Vector2(256, 128)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_7nixe")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/2/use_blend = true
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.118196,
+"start_offset": 0.620531,
+"stream": ExtResource("4_ubvvj")
+}],
+"times": PackedFloat32Array(0.333333)
+}
+tracks/3/use_blend = true
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D3")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 135.209,
+"start_offset": 0.0,
+"stream": ExtResource("5_7i1l0")
+}],
+"times": PackedFloat32Array(0.266667)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6x1xh"]
+_data = {
+"RESET": SubResource("Animation_dhli2"),
+"d1": SubResource("Animation_r6bhw"),
+"d2": SubResource("Animation_xmfum")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_k4haf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, 128)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_b2u0e")
+hframes = 8
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(256, -96)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_b2u0e")
+hframes = 8
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6x1xh")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+attenuation = 1.41421
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+
+[node name="TextBox" parent="." instance=ExtResource("6_w52we")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -64.0
+offset_right = 240.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+scene_next = "res://Levels/level3.tscn"
+message = "ahhhh, this looks familiar, you smells like .... him, did you call me to save you again ?, Master ? ...... !"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

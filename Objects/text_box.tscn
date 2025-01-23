@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3p2rpxi8kore"]
+
+[ext_resource type="Script" path="res://Objects/text_box.gd" id="1_fmtv2"]
+[ext_resource type="Texture2D" uid="uid://du6gatcs0e1d5" path="res://dialog.png" id="2_20j1u"]
+[ext_resource type="Texture2D" uid="uid://eygakuo07r2f" path="res://next-dialog.png" id="3_svcyv"]
+[ext_resource type="Texture2D" uid="uid://bxkyhrievcsju" path="res://skip_dialog.png" id="4_qqdud"]
+
+[node name="TextBox" type="MarginContainer"]
+offset_left = 16.0
+offset_top = 208.0
+offset_right = 496.0
+offset_bottom = 272.0
+script = ExtResource("1_fmtv2")
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_20j1u")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(456, 0)
+layout_mode = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="next" type="TextureButton" parent="MarginContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("3_svcyv")
+texture_pressed = ExtResource("3_svcyv")
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="skip" type="TextureButton" parent="MarginContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("4_qqdud")
+texture_pressed = ExtResource("4_qqdud")
+
+[connection signal="pressed" from="MarginContainer2/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="MarginContainer3/skip" to="." method="_on_skip_pressed"]

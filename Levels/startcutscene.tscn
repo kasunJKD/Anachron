@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://cvhqpliukkmo2"]
+[gd_scene load_steps=2 format=3 uid="uid://cvhqpliukkmo2"]
+
+[ext_resource type="PackedScene" uid="uid://b3p2rpxi8kore" path="res://Objects/text_box.tscn" id="1_22wp8"]
 
 [node name="Startcutscene" type="Node2D"]
+
+[node name="TextBox" parent="." instance=ExtResource("1_22wp8")]
+scene_next = "res://Levels/start_level.tscn"
+message = "\"World has gone mad, I am not a hero , im a just a man trying to protect whats mine, i found a report theres a ruin ruin of chron, im trying to look for a artifact that can save mankind\""

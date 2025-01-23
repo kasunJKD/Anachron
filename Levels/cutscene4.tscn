@@ -1,3 +1,235 @@
-[gd_scene format=3 uid="uid://3o4sqnepixyn"]
+[gd_scene load_steps=19 format=3 uid="uid://c0hqfv41c11ql"]
 
-[node name="Cutscene4" type="Node2D"]
+[ext_resource type="Script" path="res://Levels/cutscene_4.gd" id="1_1dpyt"]
+[ext_resource type="Texture2D" uid="uid://qriaed7in7fc" path="res://dd.png" id="2_1di0j"]
+[ext_resource type="AudioStream" uid="uid://btsnyccaob2jl" path="res://Assets/drop.mp3" id="3_8qp2y"]
+[ext_resource type="AudioStream" uid="uid://cho4uw5dbe7we" path="res://Assets/deamon rise.mp3" id="4_7rpm5"]
+[ext_resource type="AudioStream" uid="uid://bom6pgjltgund" path="res://Assets/denter.mp3" id="5_iafqb"]
+[ext_resource type="AudioStream" uid="uid://c0uq4cob1rd4v" path="res://Assets/diabolic-laugh-202978.mp3" id="6_fr4fw"]
+[ext_resource type="PackedScene" uid="uid://b3p2rpxi8kore" path="res://Objects/text_box.tscn" id="7_v2j4b"]
+[ext_resource type="Shader" path="res://Levels/fog.gdshader" id="8_3spbh"]
+
+[sub_resource type="Animation" id="Animation_dhli2"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_r6bhw"]
+resource_name = "d1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(432, -16), Vector2(256, 144)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_8qp2y")
+}],
+"times": PackedFloat32Array(0.3)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_xmfum"]
+resource_name = "d2"
+length = 50.0
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_8qp2y")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.118196,
+"start_offset": 0.620531,
+"stream": ExtResource("4_7rpm5")
+}],
+"times": PackedFloat32Array(0.333333)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 135.209,
+"start_offset": 0.0,
+"stream": ExtResource("5_iafqb")
+}],
+"times": PackedFloat32Array(0.266667)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_jxukh"]
+resource_name = "d3"
+length = 30.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_iafqb")
+}],
+"times": PackedFloat32Array(0.0666667)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_fr4fw")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_fr4fw")
+}],
+"times": PackedFloat32Array(4.26667, 10.2667)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_8fncc"]
+resource_name = "d4"
+length = 5.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_fr4fw")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6x1xh"]
+_data = {
+"RESET": SubResource("Animation_dhli2"),
+"d1": SubResource("Animation_r6bhw"),
+"d2": SubResource("Animation_xmfum"),
+"d3": SubResource("Animation_jxukh"),
+"d4": SubResource("Animation_8fncc")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgq72"]
+shader = ExtResource("8_3spbh")
+shader_parameter/base_color = Color(0, 0.373541, 1.92523e-07, 1)
+
+[sub_resource type="Gradient" id="Gradient_1c2pe"]
+offsets = PackedFloat32Array(0, 0.549242, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.454545, 0.454545, 0.454545, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0opfl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_30y0p"]
+color_ramp = SubResource("Gradient_1c2pe")
+noise = SubResource("FastNoiseLite_0opfl")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_1dpyt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, 128)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_1di0j")
+hframes = 8
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6x1xh")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+attenuation = 1.41421
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+
+[node name="TextBox" parent="." instance=ExtResource("7_v2j4b")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -64.0
+offset_right = 240.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+message = "yes yes yes, let me serve you once again master, once you used my power to bring peace to your kind, once again we meet for the same purpose, here is my power, power to cleance the world one more time"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_lgq72")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("NoiseTexture2D_30y0p")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
