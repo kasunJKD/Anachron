@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://qirlwiqicpg2"]
+[gd_scene load_steps=9 format=3 uid="uid://qirlwiqicpg2"]
 
 [ext_resource type="Script" path="res://Scripts/menu_options.gd" id="1_qi4xp"]
 [ext_resource type="PackedScene" uid="uid://nbgrbhudk456" path="res://Objects/volume_slider.tscn" id="2_gwnh3"]
+[ext_resource type="Texture2D" uid="uid://b64qw2sc3igb4" path="res://Assets/.Keyboard.png" id="3_m0go2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dnju"]
+atlas = ExtResource("3_m0go2")
+region = Rect2(112, 128, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acecq"]
+atlas = ExtResource("3_m0go2")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvloc"]
+atlas = ExtResource("3_m0go2")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p2o4"]
+atlas = ExtResource("3_m0go2")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjuqb"]
+atlas = ExtResource("3_m0go2")
+region = Rect2(48, 48, 16, 16)
 
 [node name="MenuOptions" type="Control"]
 layout_mode = 3
@@ -39,6 +60,7 @@ layout_mode = 2
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+toggle_mode = true
 text = "Back"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
@@ -74,6 +96,91 @@ layout_mode = 2
 [node name="Header" type="Label" parent="MarginContainer3/VBoxContainer"]
 layout_mode = 2
 text = "Options"
+
+[node name="Controls_1" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 192.0
+offset_right = -64.0
+offset_bottom = 232.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls_1"]
+layout_mode = 2
+
+[node name="W A S D" type="Label" parent="Controls_1/VBoxContainer"]
+layout_mode = 2
+text = "Movement"
+
+[node name="Controls_2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 32.0
+offset_top = 192.0
+offset_right = 188.0
+offset_bottom = 232.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls_2"]
+layout_mode = 2
+
+[node name="SPACE" type="Label" parent="Controls_2/VBoxContainer"]
+layout_mode = 2
+text = "use Time Rift"
+
+[node name="Controls_3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 64.0
+offset_top = 176.0
+offset_right = 160.0
+offset_bottom = 224.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls_3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Controls_3/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7dnju")
+
+[node name="Controls_4" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 176.0
+offset_right = -36.0
+offset_bottom = 192.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls_4"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Controls_4/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_acecq")
+
+[node name="TextureRect2" type="TextureRect" parent="Controls_4/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fvloc")
+
+[node name="TextureRect3" type="TextureRect" parent="Controls_4/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7p2o4")
+
+[node name="TextureRect4" type="TextureRect" parent="Controls_4/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_rjuqb")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="toggled" from="MarginContainer2/CheckButton" to="." method="_on_check_button_toggled"]

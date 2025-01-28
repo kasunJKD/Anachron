@@ -1,3 +1,337 @@
-[gd_scene format=3 uid="uid://drjimiiefqggc"]
+[gd_scene load_steps=8 format=4 uid="uid://l8ilrwcrjtr1"]
 
-[node name="Level2" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://btxim5m6o7s7q" path="res://Levels/base_level_init.tscn" id="1_kwvsh"]
+[ext_resource type="PackedScene" uid="uid://ci626r70sp8q1" path="res://Objects/box_move.tscn" id="2_gheal"]
+[ext_resource type="PackedScene" uid="uid://io6yne5e4ilw" path="res://Objects/door.tscn" id="3_x4y05"]
+[ext_resource type="PackedScene" uid="uid://c8rfim8sxt0ed" path="res://Objects/shard.tscn" id="4_ffgnb"]
+[ext_resource type="PackedScene" uid="uid://lrh6hs2pujod" path="res://Objects/box_move2.tscn" id="5_4mat0"]
+[ext_resource type="PackedScene" uid="uid://cs7lff3pyyy7e" path="res://Objects/deathTrigger.tscn" id="5_xy55l"]
+[ext_resource type="PackedScene" uid="uid://uksi1mt88f2d" path="res://Objects/TimeTravelTrigger.tscn" id="6_ayufp"]
+
+[node name="StartLevel" instance=ExtResource("1_kwvsh")]
+
+[node name="Map" parent="." index="0"]
+visible = true
+
+[node name="BaseLayer" parent="Map" index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAQAAAAPAAAAAQACAAQAAAAPAAgAAQACAAYAAAAAAAgAAQAAAAYAAAABAAgAAQABAAYAAAACAAgAAQABAAYAAAADAAgAAQABAAYAAAAEAAgAAQABAAYAAAAFAAgAAQABAAYAAAAGAAgAAQABAAYAAAAHAAgAAQABAAYAAAAIAAgAAQABAAYAAAAJAAgAAQABAAYAAAAKAAgAAQABAAYAAAALAAgAAQABAAYAAAAMAAgAAQABAAYAAAANAAgAAQABAAYAAAAOAAgAAQABAAYAAAAOAAAAAQABAAQAAAANAAAAAQABAAQAAAAMAAAAAQABAAQAAAALAAAAAQABAAQAAAAKAAAAAQABAAQAAAAJAAAAAQABAAQAAAAIAAAAAQABAAQAAAAHAAAAAQABAAQAAAAGAAAAAQABAAQAAAAFAAAAAQABAAQAAAAEAAAAAQABAAQAAAADAAAAAQABAAQAAAACAAAAAQABAAQAAAABAAAAAQABAAQAAAAAAAEAAQAAAAUAAAAAAAIAAQAAAAUAAAAAAAMAAQAAAAUAAAAAAAQAAQAAAAUAAAAAAAUAAQAAAAUAAAAAAAYAAQAAAAUAAAAAAAcAAQAAAAUAAAAPAAEAAQACAAUAAAAPAAIAAQACAAUAAAAPAAMAAQACAAUAAAAPAAYAAQACAAUAAAAPAAcAAQACAAUAAAAPAAQAAQACAAUAAAAPAAUAAQACAAUAAAAOAAQAAQABAAIAAAANAAQAAQABAAEAAAAMAAQAAQAAAAgAAAALAAQAAQAAAAgAAAAKAAQAAQABAAIAAAAJAAQAAQABAAEAAAAIAAQAAQAJAAAAAAAFAAQAAQAHAAUAAAAEAAQAAQABAAIAAAADAAQAAQABAAEAAAACAAQAAQABAAIAAAABAAQAAQABAAEAAAAGAAQAAQABAAIAAAABAAEAAQAJAAAAAAACAAEAAQAJAAAAAAADAAEAAQAJAAAAAAAFAAEAAQAJAAAAAAAHAAEAAQAJAAAAAAAJAAEAAQAJAAAAAAALAAEAAQAJAAAAAAANAAEAAQAAAAgAAAACAAIAAQAJAAAAAAAEAAIAAQAJAAAAAAAGAAIAAQACAAEAAAAIAAIAAQAJAAAAAAAKAAIAAQAHAAUAAAAMAAIAAQAJAAAAAAAOAAIAAQAAAAgAAAABAAMAAQAJAAAAAAADAAMAAQAJAAAAAAAFAAMAAQACAAEAAAAJAAMAAQABAAIAAAALAAMAAQAAAAgAAAANAAMAAQAJAAAAAAABAAUAAQAJAAAAAAADAAUAAQAJAAAAAAAFAAUAAQAAAAgAAAAHAAUAAQAAAAgAAAAJAAUAAQABAAIAAAALAAUAAQAAAAgAAAANAAUAAQABAAIAAAACAAYAAQAJAAAAAAAEAAYAAQAJAAAAAAAGAAYAAQAAAAgAAAAIAAYAAQAJAAAAAAAKAAYAAQABAAIAAAAMAAYAAQABAAIAAAAOAAYAAQAJAAAAAAABAAcAAQAJAAAAAAADAAcAAQAJAAAAAAAFAAcAAQAJAAAAAAAHAAcAAQAJAAAAAAAJAAcAAQAJAAAAAAALAAcAAQAJAAAAAAANAAcAAQAJAAAAAAABAAIAAQAJAAAAAAAEAAEAAQAJAAAAAAACAAMAAQAJAAAAAAAEAAMAAQAJAAAAAAAFAAIAAQABAAEAAAAGAAEAAQAJAAAAAAAGAAMAAQAAAAgAAAAHAAIAAQABAAEAAAAIAAEAAQAJAAAAAAAIAAMAAQAJAAAAAAAJAAIAAQABAAEAAAAKAAEAAQAJAAAAAAAKAAMAAQABAAEAAAALAAIAAQAJAAAAAAAMAAEAAQABAAEAAAAMAAMAAQAAAAgAAAANAAIAAQAAAAgAAAAOAAEAAQABAAEAAAAOAAMAAQAJAAAAAAAOAAUAAQAJAAAAAAAMAAUAAQAJAAAAAAANAAYAAQABAAEAAAAMAAcAAQAJAAAAAAALAAYAAQABAAEAAAAKAAcAAQAJAAAAAAAOAAcAAQAJAAAAAAAKAAUAAQAJAAAAAAAJAAYAAQABAAEAAAAIAAcAAQAJAAAAAAAIAAUAAQAJAAAAAAAHAAYAAQABAAEAAAAGAAUAAQAAAAgAAAAGAAcAAQAJAAAAAAAFAAYAAQAAAAgAAAAEAAUAAQAJAAAAAAAEAAcAAQAJAAAAAAADAAYAAQAJAAAAAAACAAUAAQAJAAAAAAABAAYAAQAJAAAAAAACAAcAAQAJAAAAAAAHAAQAAQAAAAgAAAAHAAMAAQABAAIAAAADAAIAAQAJAAAAAAA=")
+
+[node name="CharacterBody2D" parent="Map" index="1" instance=ExtResource("2_gheal")]
+position = Vector2(176, 112)
+
+[node name="CharacterBody2D2" parent="Map" index="2" instance=ExtResource("2_gheal")]
+position = Vector2(208, 80)
+
+[node name="Door" parent="Map" index="3" instance=ExtResource("3_x4y05")]
+position = Vector2(464, 144)
+
+[node name="Area2D" parent="Map" index="4" instance=ExtResource("4_ffgnb")]
+position = Vector2(464, 48)
+
+[node name="Area2D2" parent="Map" index="5" instance=ExtResource("5_xy55l")]
+position = Vector2(48, 112)
+area_type = "Water"
+
+[node name="Area2D3" parent="Map" index="6" instance=ExtResource("5_xy55l")]
+position = Vector2(80, 112)
+area_type = "Water"
+
+[node name="Area2D4" parent="Map" index="7" instance=ExtResource("5_xy55l")]
+position = Vector2(112, 112)
+area_type = "Water"
+
+[node name="Area2D5" parent="Map" index="8" instance=ExtResource("5_xy55l")]
+position = Vector2(144, 112)
+area_type = "Water"
+
+[node name="Area2D6" parent="Map" index="9" instance=ExtResource("5_xy55l")]
+position = Vector2(144, 80)
+area_type = "Water"
+
+[node name="Area2D7" parent="Map" index="10" instance=ExtResource("5_xy55l")]
+position = Vector2(144, 48)
+area_type = "Water"
+
+[node name="Area2D8" parent="Map" index="11" instance=ExtResource("5_xy55l")]
+position = Vector2(176, 48)
+area_type = "Water"
+
+[node name="Area2D9" parent="Map" index="12" instance=ExtResource("5_xy55l")]
+position = Vector2(208, 48)
+area_type = "Water"
+
+[node name="Area2D10" parent="Map" index="13" instance=ExtResource("5_xy55l")]
+position = Vector2(240, 48)
+area_type = "Water"
+
+[node name="Area2D11" parent="Map" index="14" instance=ExtResource("5_xy55l")]
+position = Vector2(272, 48)
+area_type = "Water"
+
+[node name="Area2D12" parent="Map" index="15" instance=ExtResource("5_xy55l")]
+position = Vector2(272, 80)
+area_type = "Water"
+
+[node name="Area2D13" parent="Map" index="16" instance=ExtResource("5_xy55l")]
+position = Vector2(272, 112)
+area_type = "Water"
+
+[node name="Area2D14" parent="Map" index="17" instance=ExtResource("5_xy55l")]
+position = Vector2(272, 144)
+area_type = "Water"
+
+[node name="Area2D15" parent="Map" index="18" instance=ExtResource("5_xy55l")]
+position = Vector2(272, 176)
+area_type = "Water"
+
+[node name="Area2D16" parent="Map" index="19" instance=ExtResource("5_xy55l")]
+position = Vector2(272, 208)
+area_type = "Water"
+
+[node name="Area2D17" parent="Map" index="20" instance=ExtResource("5_xy55l")]
+position = Vector2(272, 240)
+area_type = "Water"
+
+[node name="Area2D18" parent="Map" index="21" instance=ExtResource("5_xy55l")]
+position = Vector2(240, 240)
+area_type = "Water"
+
+[node name="Area2D19" parent="Map" index="22" instance=ExtResource("5_xy55l")]
+position = Vector2(208, 240)
+area_type = "Water"
+
+[node name="Area2D20" parent="Map" index="23" instance=ExtResource("5_xy55l")]
+position = Vector2(176, 240)
+area_type = "Water"
+
+[node name="Area2D21" parent="Map" index="24" instance=ExtResource("5_xy55l")]
+position = Vector2(144, 240)
+area_type = "Water"
+
+[node name="Area2D22" parent="Map" index="25" instance=ExtResource("5_xy55l")]
+position = Vector2(144, 208)
+area_type = "Water"
+
+[node name="Area2D23" parent="Map" index="26" instance=ExtResource("5_xy55l")]
+position = Vector2(144, 176)
+area_type = "Water"
+
+[node name="Area2D24" parent="Map" index="27" instance=ExtResource("5_xy55l")]
+position = Vector2(112, 176)
+area_type = "Water"
+
+[node name="Area2D25" parent="Map" index="28" instance=ExtResource("5_xy55l")]
+position = Vector2(80, 176)
+area_type = "Water"
+
+[node name="Area2D43" parent="Map" index="29" instance=ExtResource("5_xy55l")]
+position = Vector2(48, 176)
+area_type = "Water"
+
+[node name="Area2D26" parent="Map" index="30" instance=ExtResource("5_xy55l")]
+position = Vector2(336, 176)
+area_type = "Water"
+
+[node name="Area2D27" parent="Map" index="31" instance=ExtResource("5_xy55l")]
+position = Vector2(400, 176)
+area_type = "Water"
+
+[node name="Area2D28" parent="Map" index="32" instance=ExtResource("5_xy55l")]
+position = Vector2(432, 112)
+area_type = "Water"
+
+[node name="Area2D29" parent="Map" index="33" instance=ExtResource("5_xy55l")]
+position = Vector2(464, 112)
+area_type = "Water"
+
+[node name="Area2D30" parent="Map" index="34" instance=ExtResource("5_xy55l")]
+position = Vector2(464, 176)
+area_type = "Water"
+
+[node name="Area2D31" parent="Map" index="35" instance=ExtResource("5_xy55l")]
+position = Vector2(464, 208)
+area_type = "Water"
+
+[node name="Area2D32" parent="Map" index="36" instance=ExtResource("5_xy55l")]
+position = Vector2(464, 240)
+area_type = "Water"
+
+[node name="Area2D33" parent="Map" index="37" instance=ExtResource("5_xy55l")]
+position = Vector2(432, 240)
+area_type = "Water"
+
+[node name="Area2D34" parent="Map" index="38" instance=ExtResource("5_xy55l")]
+position = Vector2(400, 240)
+area_type = "Water"
+
+[node name="Area2D35" parent="Map" index="39" instance=ExtResource("5_xy55l")]
+position = Vector2(368, 240)
+area_type = "Water"
+
+[node name="Area2D36" parent="Map" index="40" instance=ExtResource("5_xy55l")]
+position = Vector2(336, 240)
+area_type = "Water"
+
+[node name="Area2D37" parent="Map" index="41" instance=ExtResource("5_xy55l")]
+position = Vector2(304, 240)
+area_type = "Water"
+
+[node name="Area2D38" parent="Map" index="42" instance=ExtResource("5_xy55l")]
+position = Vector2(304, 48)
+area_type = "Water"
+
+[node name="Area2D39" parent="Map" index="43" instance=ExtResource("5_xy55l")]
+position = Vector2(336, 48)
+area_type = "Water"
+
+[node name="Area2D40" parent="Map" index="44" instance=ExtResource("5_xy55l")]
+position = Vector2(368, 48)
+area_type = "Water"
+
+[node name="Area2D41" parent="Map" index="45" instance=ExtResource("5_xy55l")]
+position = Vector2(368, 80)
+area_type = "Water"
+
+[node name="Area2D42" parent="Map" index="46" instance=ExtResource("5_xy55l")]
+position = Vector2(400, 80)
+area_type = "Water"
+
+[node name="Area2D44" parent="Map" index="47" instance=ExtResource("6_ayufp")]
+position = Vector2(176, 144)
+
+[node name="Area2D45" parent="Map" index="48" instance=ExtResource("6_ayufp")]
+position = Vector2(336, 80)
+
+[node name="Past_Map" parent="." index="1"]
+visible = false
+
+[node name="TileMapLayer" parent="Past_Map" index="0"]
+tile_map_data = PackedByteArray("AAAOAAQAAQAGAAEAAAANAAQAAQAGAAIAAAAMAAQAAQAGAAEAAAALAAQAAQAGAAIAAAAKAAQAAQAGAAEAAAAJAAQAAQAHAAEAAAAIAAQAAQAGAAEAAAAHAAQAAQAHAAEAAAAGAAQAAQAGAAEAAAAFAAQAAQAHAAQAAAAEAAQAAQAGAAEAAAADAAQAAQAJAAEAAAACAAQAAQAJAAEAAAACAAUAAQAJAAEAAAADAAUAAQAJAAEAAAAEAAUAAQAHAAEAAAAFAAUAAQAGAAEAAAAGAAUAAQAHAAEAAAAHAAUAAQAGAAEAAAAIAAUAAQAHAAEAAAAJAAUAAQAGAAEAAAAKAAUAAQAHAAEAAAALAAUAAQAGAAEAAAACAAMAAQAJAAEAAAADAAMAAQAJAAEAAAAEAAMAAQAHAAEAAAAFAAMAAQAGAAEAAAAGAAMAAQAGAAIAAAAHAAMAAQAJAAEAAAAIAAMAAQAHAAEAAAAJAAMAAQAGAAEAAAAKAAMAAQAHAAEAAAALAAMAAQAGAAEAAAAMAAMAAQAJAAEAAAANAAMAAQAGAAEAAAAOAAMAAQAHAAEAAAAAAAAAAQAEAAQAAAAAAAgAAQAEAAYAAAAPAAgAAQAGAAYAAAAPAAAAAQAGAAQAAAAAAAEAAQAEAAUAAAAAAAIAAQAEAAUAAAAAAAMAAQAEAAUAAAAAAAQAAQAEAAUAAAAAAAUAAQAEAAUAAAAAAAYAAQAEAAUAAAAAAAcAAQAEAAUAAAABAAgAAQAFAAYAAAACAAgAAQAFAAYAAAADAAgAAQAFAAYAAAAEAAgAAQAFAAYAAAAFAAgAAQAFAAYAAAAGAAgAAQAFAAYAAAAHAAgAAQAFAAYAAAAIAAgAAQAFAAYAAAAJAAgAAQAFAAYAAAAKAAgAAQAFAAYAAAALAAgAAQAFAAYAAAAMAAgAAQAFAAYAAAANAAgAAQAFAAYAAAAOAAgAAQAFAAYAAAAPAAEAAQAGAAUAAAAPAAIAAQAJAAEAAAAPAAMAAQAGAAUAAAAPAAQAAQAGAAUAAAAPAAYAAQAJAAEAAAAPAAcAAQAGAAUAAAAOAAAAAQAFAAQAAAANAAAAAQAFAAQAAAAMAAAAAQAFAAQAAAALAAAAAQAFAAQAAAAKAAAAAQAFAAQAAAAJAAAAAQAFAAQAAAAIAAAAAQAFAAQAAAAHAAAAAQAFAAQAAAAGAAAAAQAFAAQAAAAFAAAAAQAFAAQAAAAEAAAAAQAFAAQAAAADAAAAAQAFAAQAAAACAAAAAQAFAAQAAAABAAAAAQAFAAQAAAABAAEAAQAJAAEAAAADAAEAAQAJAAEAAAAFAAEAAQAJAAEAAAAHAAEAAQAJAAEAAAAJAAEAAQAJAAEAAAALAAEAAQAGAAEAAAANAAEAAQAGAAEAAAAMAAIAAQAJAAEAAAAKAAIAAQAHAAQAAAAIAAIAAQAGAAEAAAAGAAIAAQAJAAEAAAAEAAIAAQAJAAEAAAACAAIAAQAJAAEAAAABAAMAAQAJAAEAAAAOAAIAAQAJAAEAAAABAAUAAQAJAAEAAAAMAAYAAQAJAAEAAAAKAAYAAQAGAAEAAAAIAAYAAQAGAAEAAAAGAAYAAQAJAAEAAAAEAAYAAQAJAAEAAAACAAYAAQAJAAEAAAABAAcAAQAJAAEAAAADAAcAAQAJAAEAAAAFAAcAAQAJAAEAAAAHAAcAAQAJAAEAAAAJAAcAAQAGAAEAAAALAAcAAQAGAAEAAAANAAcAAQAGAAEAAAAOAAYAAQAJAAEAAAABAAIAAQAJAAEAAAACAAEAAQAJAAEAAAADAAIAAQAJAAEAAAAEAAEAAQAJAAEAAAAFAAIAAQAJAAEAAAAGAAEAAQAJAAEAAAAHAAIAAQAJAAEAAAAJAAIAAQAHAAEAAAAIAAEAAQAJAAEAAAAKAAEAAQAHAAEAAAAMAAEAAQAHAAQAAAALAAIAAQAGAAIAAAANAAIAAQAJAAEAAAAOAAEAAQAHAAEAAAABAAYAAQAJAAEAAAACAAcAAQAJAAEAAAADAAYAAQAJAAEAAAAEAAcAAQAJAAEAAAAFAAYAAQAJAAEAAAAGAAcAAQAJAAEAAAAHAAYAAQAJAAEAAAAIAAcAAQAHAAEAAAAJAAYAAQAHAAEAAAAKAAcAAQAHAAEAAAALAAYAAQAHAAEAAAAMAAcAAQAHAAEAAAANAAYAAQAJAAEAAAAOAAcAAQAHAAEAAAAMAAUAAQAJAAEAAAANAAUAAQAGAAEAAAAPAAUAAQAGAAUAAAAOAAUAAQAHAAEAAAABAAQAAQAJAAEAAAA=")
+
+[node name="CharacterBody2D" parent="Past_Map" index="1" instance=ExtResource("5_4mat0")]
+position = Vector2(304, 176)
+
+[node name="CharacterBody2D2" parent="Past_Map" index="2" instance=ExtResource("5_4mat0")]
+position = Vector2(336, 176)
+
+[node name="CharacterBody2D3" parent="Past_Map" index="3" instance=ExtResource("5_4mat0")]
+position = Vector2(304, 112)
+
+[node name="CharacterBody2D4" parent="Past_Map" index="4" instance=ExtResource("5_4mat0")]
+position = Vector2(368, 48)
+
+[node name="Area2D46" parent="Past_Map" index="5" instance=ExtResource("5_xy55l")]
+position = Vector2(112, 112)
+area_type = "Electric"
+
+[node name="Area2D47" parent="Past_Map" index="6" instance=ExtResource("5_xy55l")]
+position = Vector2(112, 144)
+area_type = "Electric"
+
+[node name="Area2D48" parent="Past_Map" index="7" instance=ExtResource("5_xy55l")]
+position = Vector2(112, 176)
+area_type = "Electric"
+
+[node name="Area2D49" parent="Past_Map" index="8" instance=ExtResource("5_xy55l")]
+position = Vector2(144, 208)
+area_type = "Electric"
+
+[node name="Area2D50" parent="Past_Map" index="9" instance=ExtResource("5_xy55l")]
+position = Vector2(176, 208)
+area_type = "Electric"
+
+[node name="Area2D51" parent="Past_Map" index="10" instance=ExtResource("5_xy55l")]
+position = Vector2(208, 208)
+area_type = "Electric"
+
+[node name="Area2D52" parent="Past_Map" index="11" instance=ExtResource("5_xy55l")]
+position = Vector2(240, 208)
+area_type = "Electric"
+
+[node name="Area2D53" parent="Past_Map" index="12" instance=ExtResource("5_xy55l")]
+position = Vector2(240, 240)
+area_type = "Electric"
+
+[node name="Area2D54" parent="Past_Map" index="13" instance=ExtResource("5_xy55l")]
+position = Vector2(240, 112)
+area_type = "Electric"
+
+[node name="Area2D55" parent="Past_Map" index="14" instance=ExtResource("5_xy55l")]
+position = Vector2(240, 80)
+area_type = "Electric"
+
+[node name="Area2D56" parent="Past_Map" index="15" instance=ExtResource("5_xy55l")]
+position = Vector2(208, 80)
+area_type = "Electric"
+
+[node name="Area2D57" parent="Past_Map" index="16" instance=ExtResource("5_xy55l")]
+position = Vector2(176, 80)
+area_type = "Electric"
+
+[node name="Area2D58" parent="Past_Map" index="17" instance=ExtResource("5_xy55l")]
+position = Vector2(144, 80)
+area_type = "Electric"
+
+[node name="Area2D59" parent="Past_Map" index="18" instance=ExtResource("5_xy55l")]
+position = Vector2(272, 48)
+area_type = "Electric"
+
+[node name="Area2D60" parent="Past_Map" index="19" instance=ExtResource("5_xy55l")]
+position = Vector2(304, 48)
+area_type = "Electric"
+
+[node name="Area2D61" parent="Past_Map" index="20" instance=ExtResource("5_xy55l")]
+position = Vector2(400, 80)
+area_type = "Electric"
+
+[node name="Area2D62" parent="Past_Map" index="21" instance=ExtResource("5_xy55l")]
+position = Vector2(432, 80)
+area_type = "Electric"
+
+[node name="Area2D63" parent="Past_Map" index="22" instance=ExtResource("5_xy55l")]
+position = Vector2(464, 80)
+area_type = "Electric"
+
+[node name="Area2D64" parent="Past_Map" index="23" instance=ExtResource("5_xy55l")]
+position = Vector2(496, 80)
+area_type = "Electric"
+
+[node name="Area2D65" parent="Past_Map" index="24" instance=ExtResource("5_xy55l")]
+position = Vector2(400, 112)
+area_type = "Electric"
+
+[node name="Area2D66" parent="Past_Map" index="25" instance=ExtResource("5_xy55l")]
+position = Vector2(400, 176)
+area_type = "Electric"
+
+[node name="Area2D67" parent="Past_Map" index="26" instance=ExtResource("5_xy55l")]
+position = Vector2(400, 208)
+area_type = "Electric"
+
+[node name="Area2D68" parent="Past_Map" index="27" instance=ExtResource("5_xy55l")]
+position = Vector2(432, 208)
+area_type = "Electric"
+
+[node name="Area2D69" parent="Past_Map" index="28" instance=ExtResource("5_xy55l")]
+position = Vector2(464, 208)
+area_type = "Electric"
+
+[node name="Area2D70" parent="Past_Map" index="29" instance=ExtResource("5_xy55l")]
+position = Vector2(496, 208)
+area_type = "Electric"
+
+[node name="Area2D71" parent="Past_Map" index="30" instance=ExtResource("5_xy55l")]
+position = Vector2(496, 208)
+area_type = "Electric"
+
+[node name="Area2D" parent="Past_Map" index="31" instance=ExtResource("6_ayufp")]
+position = Vector2(176, 144)
+
+[node name="Area2D2" parent="Past_Map" index="32" instance=ExtResource("6_ayufp")]
+position = Vector2(336, 80)
+
+[node name="Area2D3" parent="Past_Map" index="33" instance=ExtResource("6_ayufp")]
+position = Vector2(400, 48)
+
+[node name="Player" parent="." index="2"]
+position = Vector2(48, 144)

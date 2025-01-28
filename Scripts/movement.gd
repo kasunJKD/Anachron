@@ -140,7 +140,7 @@ func attempt_move(direction: int):
 
 	# 3) Check if there's a box at new_target
 	var first_box = get_box_at_position(new_target)
-	if first_box and not StateMech.is_in_past:
+	if first_box:
 		# There's at least one box, so let's try pushing the chain
 		var success = push_box_chain(new_target, dir_vec)
 		if success:

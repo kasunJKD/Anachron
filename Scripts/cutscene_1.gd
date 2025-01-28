@@ -1,6 +1,6 @@
 extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-var next_scene_path: String = "res://Levels/level1.tscn"
+var next_scene_path: String = "res://Levels/level2.tscn"
 
 func _ready() -> void:
 	# Play the animation when the scene is ready

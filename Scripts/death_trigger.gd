@@ -12,15 +12,26 @@ func _ready() -> void:
 
 # Replace with function body.
 func _on_body_entered(body: CharacterBody2D) -> void:
-	# Ensure the body is the Player by checking group membership
-	print(body)
-	if body.name == "Player" or body.is_in_group("boxes"):
+	# 1) If a box enters, destroy it.
+	if body.is_in_group("boxes"):
+		body.queue_free()
+		return
+	if body.is_in_group("boxes2"):
+		body.queue_free()
+		return
+	
+	# 2) If the Player enters, trigger a "game over" or special event.
+	if body.name == "Player":
 		match area_type:
 			"Water":
 				water_death_sfx.play()
 				emit_signal("player_stepped_on_water")
-				# Additional logic for water death
-				# e.g., StateMech.handle_player_death("Water")
+				get_tree().change_scene_to_file("res://Levels/GameOver.tscn")
+				# TODO: Add your game-over logic here, e.g.
+				# StateMech.handle_player_death("Water")
+				
 			"Electric":
 				electric_death_sfx.play()
 				emit_signal("player_stepped_on_electricity")
+				# TODO: Add your game-over logic here, e.g.
+				# StateMech.handle_player_death("Electric")

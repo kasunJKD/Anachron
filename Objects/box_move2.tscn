@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://lrh6hs2pujod"]
+
+[ext_resource type="Script" path="res://Objects/box_move_2.gd" id="1_6py1r"]
+[ext_resource type="Texture2D" uid="uid://dlixsv5r5eqa2" path="res://spritesheet.png" id="2_1vmtt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r54n"]
+size = Vector2(32, 32)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_6py1r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1vmtt")
+region_enabled = true
+region_rect = Rect2(128, 256, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5r54n")

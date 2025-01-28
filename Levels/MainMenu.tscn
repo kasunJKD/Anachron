@@ -61,11 +61,15 @@ grow_vertical = 2
 color = Color(0.295867, 0.295866, 0.295866, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.80076, 0.784149, 0.777004, 1)
+self_modulate = Color(0.888243, 0.976022, 0.894391, 1)
 position = Vector2(256, 144)
 texture = ExtResource("3_iqlwu")
 hframes = 5
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.374133, 0.351918, 0.324442, 1)
+self_modulate = Color(0.577008, 0.577008, 0.577008, 1)
 layout_mode = 0
 offset_right = 512.0
 offset_bottom = 288.0
@@ -79,9 +83,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -46.0
-offset_top = -28.0
+offset_top = 6.0
 offset_right = 46.0
-offset_bottom = 28.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 

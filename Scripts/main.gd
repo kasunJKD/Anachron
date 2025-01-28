@@ -5,6 +5,8 @@ extends Node
 @onready var tilemap_present = $Map
 @onready var timeswitch_sfx: AudioStreamPlayer2D = $timeswitch_sfx
 func _ready() -> void:
+	StateMech.shard = false
+	StateMech.previous_scene_path = get_tree().get_current_scene().get_scene_file_path()
 	# 1) Make sure tilemaps match the initial 'is_in_past' value
 	update_time_travel_visibility(StateMech.is_in_past)
 
@@ -35,12 +37,13 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		# Only allow time travel if on_time_travel_battery is true
 		if StateMech.on_time_travel_battery:
-			if event.keycode == KEY_T:
+			if event.keycode == KEY_SPACE:
 				timeswitch_sfx.play()
 				# Toggle is_in_past (this will emit the signal automatically)
 				StateMech.is_in_past = not StateMech.is_in_past
+			if event.keycode == KEY_R:
+				get_tree().reload_current_scene()
 				# The _on_is_in_past_changed callback will do tilemap updates
-
 func _on_is_in_past_changed(new_value: bool) -> void:
 	# Update tilemaps, store state, etc., whenever is_in_past changes
 	update_time_travel_visibility(new_value)
@@ -70,18 +73,22 @@ func update_time_travel_visibility(is_past: bool) -> void:
 		tilemap_past.visible = true
 		set_characters_active(true, tilemap_past)
 		tilemap_past.get_node("TileMapLayer").enabled = true
+		tilemap_past.process_mode = Node.PROCESS_MODE_INHERIT
 
 		# Hide + disable collisions for present map
 		tilemap_present.visible = false
 		set_characters_active(false, tilemap_present)
 		tilemap_present.get_node("BaseLayer").enabled = false
+		tilemap_present.process_mode = Node.PROCESS_MODE_DISABLED
 
 	else:
 		# Show + enable collisions for present map
 		tilemap_past.visible = false
 		set_characters_active(false, tilemap_past)
 		tilemap_past.get_node("TileMapLayer").enabled = false
-
+		tilemap_past.process_mode = Node.PROCESS_MODE_DISABLED
+		
 		tilemap_present.visible = true
 		set_characters_active(true, tilemap_present)
 		tilemap_present.get_node("BaseLayer").enabled = true
+		tilemap_present.process_mode = Node.PROCESS_MODE_INHERIT

@@ -3,6 +3,8 @@ extends Node
 var game_state_history: Array = []
 var player_ref = null  # We'll store a reference to the Player node here (optional)
 var on_time_travel_battery = false
+var previous_scene_path: String = ""
+var shard = false
 
 signal is_in_past_changed(new_value)
 
